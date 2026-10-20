@@ -113,8 +113,13 @@ class Bot(Client):
         await web.TCPSite(app, "0.0.0.0", PORT).start()
 
 
-        try: await self.send_message(OWNER_ID, text = f"<b><blockquote> Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ by @Ecchi_Culture</blockquote></b>")
-        except: pass
+        try:
+    await self.send_message(
+        OWNER_ID,
+        text="<b><blockquote>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ by @Ecchi_Culture</blockquote></b>"
+    )
+except Exception:
+    pass
 
     async def stop(self, *args):
         await super().stop()
@@ -124,7 +129,7 @@ class Bot(Client):
         """Run the bot."""
         loop = asyncio.get_event_loop()
         loop.run_until_complete(self.start())
-        self.LOGGER(__name__).info("Bot is now running. Thanks to @rohit_1888")
+        self.LOGGER(__name__).info("Bot is now running. Thanks to @Ecchi_Culture")
         try:
             loop.run_forever()
         except KeyboardInterrupt:
